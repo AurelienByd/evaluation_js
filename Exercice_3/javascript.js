@@ -3,6 +3,7 @@ var a = tab.indexOf((window.prompt("Ecrire un prénom")));
 if (a!=-1)
 {
     delete tab[a];
+    tab.sort();
 }
 else if (a==-1)
 {
