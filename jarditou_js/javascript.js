@@ -1,76 +1,55 @@
-document.getElementById("formulaire");
+let myform = document.getElementById("form");
 
-function formulaire()
-{
-    var name = document.forms["RegForm"]["name"];
-    var email = document.forms["RegForm"]["email"];
-    var fname = document.forms["RegForm"]["fname"];
-    var sexe = document.forms["RegForm"]["sexe"];
-    var date = document.forms["RegForm"]["date"];
-    var cp = document.forms["RegForm"]["cp"];
-    var adresse = document.forms["RegForm"]["adresse"];
-    var city = document.forms["RegForm"]["city"];
+myform.addEventListener('submit', function(s) {
+    let myname = document.getElementById("name");
+    let myfname = document.getElementById("fname");
+    let mysexef = document.getElementById("sexef");
+    let mysexem = document.getElementById("sexem");
+    let mydate = document.getElementById("date");
+    let mycp = document.getElementById("cp");
+    let myregex1 = /^[a-zA-Z-\s]+$/;
+    let myregex2 = /^[0-9]+$/;
 
-    if (name == "")
-    {
-        window.alert("Mettez votre nom.");
-        name.focus();
-        return false;
-    }
-    if (email == "")
-    {
-        window.alert("Mettez une adresse email valide.");
-        email.focus();
-        return false;
-    }
-    if (email.indexOf("@", 0) < 0)
-    {
-        window.alert("Mettez une adresse email valide.");
-        email.focus();
-        return false;
-    }
-    if (email.indexOf(".", 0) < 0)
-    { 
-        window.alert("Mettez une adresse email valide.");
-        email.focus();
-        return false;
-    }
-    if (fname == "")
-    {
-        window.alert("Mettez votre prénom.");
-        fname.focus();
-        return false;
-    }
-    if (sexe == "")
-    {
-        window.alert("Cochez un élément.");
-        sexe.focus();
-        return false;
-    }
-    if (date == "")
-    {
-        window.alert("Ecrivez une date de naissance.");
-        date.focus();
-        return false;
-    }
-    if (cp == "")
-    {
-        window.alert("Mettez un code postal.");
-        cp.focus();
-        return false;
-    }
-    if (adresse == "")
-    {
-        window.alert("Mettez votre adresse.");
-        adresse.focus();
-        return false;
-    }
-    if (city == "")
-    {
-        window.alert("Mettez une ville.");
-        email.focus();
-        return false;
+    if (myname.value.trim() == "") {
+        let myerror = document.getElementById("error");
+        myerror.innerHTML = 'Le champs est requis.';
+        myerror.style.color = "red";
+        s.preventDefault();
+    } else if (myregex1.test(myname.value) == false) {
+        let myerror = document.getElementById("error");
+        myerror.innerHTML = 'Seuls les lettres et les tirets sont autorisés.';
+        myerror.style.color = "red";
+        s.preventDefault();
     }
 
-    return true; 
-}
+    if (myfname.value.trim() == "") {
+        let myerror2 = document.getElementById("error2");
+        myerror2.innerHTML = 'Le champs est requis.';
+        myerror2.style.color = "red";
+        s.preventDefault();
+    } else if (myregex1.test(myfname.value) == false) {
+        let myerror2 = document.getElementById("error2");
+        myerror2.innerHTML = 'Seuls les lettres et les tirets sont autorisés.';
+        myerror2.style.color = "red";
+        s.preventDefault();
+    }
+
+    if (mysexef.checked == "" && mysexem.checked == "") {
+        let myerror3 = document.getElementById("error3");
+        myerror3.innerHTML = 'Veuillez cocher un genre.';
+        myerror3.style.color = "red";
+        s.preventDefault();
+    }
+
+    if (mycp.value.trim() == "") {
+        let myerror5 = document.getElementById("error5");
+        myerror5.innerHTML = 'Le champs est requis.';
+        myerror5.style.color = "red";
+        s.preventDefault();
+    } else if (myregex2.test(mycp.value) == false) {
+        let myerror5 = document.getElementById("error5");
+        myerror5.innerHTML = 'Seuls les chiffres sont autorisés.';
+        myerror5.style.color = "red";
+        s.preventDefault();
+    }
+})
