@@ -42,7 +42,7 @@
                                 <br>
                                 <span id="error3"></span>
                                 <br>
-                            <label for="date">Date de naissance* : </label><input type="date" name="date" id="date" required>
+                            <label for="date">Date de naissance* : </label><input type="text" name="date" id="date">
                             <br>
                             <span id="error4"></span>
                             <br>
@@ -51,8 +51,13 @@
                             <span id="error5"></span>
                             <br>
                             <label for="adresse">Adresse : </label><input type="text" id="adresse" name="adresse"><br>
+                            <br>
                             <label for="city">Ville : </label><input type="text" id="city" name="city"><br>
+                            <br>
                             <label for="email">Email* : </label><input type="text" id="email" placeholder="dave.loper@afpa.fr" name="email" title="email">
+                            <br>
+                            <span id="error6"></span>
+                            <br>
                     </fieldset>
                     <br>
                     <fieldset>
@@ -63,11 +68,18 @@
                                 <option value="Question sur un produit">Question sur un produit</option>
                                 <option value="Réclamation">Réclamation</option>
                                 <option value="Autres">Autres</option>
-                            </select><br>
+                            </select>
+                            <br>
+                            <span id="error7"></span>
+                            <br>
                             <label for="question">Votre question* : </label><textarea id="question" name="question" rows="2"></textarea>
+                            <br>
+                            <span id="error8"></span>
+                            <br>
                     </fieldset>
                     <br>
-                        <input type="checkbox" name="accepter" value="accepter">* J'accepte le traitement informatique de ce formulaire<br>
+                        <input type="checkbox" id="accepter" name="accepter" value="accepter">* J'accepte le traitement informatique de ce formulaire<br>
+                    <span id="error9"></span>
                     <br>
                         <button type="submit" value="Envoyer">Envoyer</button>
                         <button type="reset" value="Annuler">Annuler</button>
